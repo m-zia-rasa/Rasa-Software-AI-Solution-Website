@@ -10,9 +10,28 @@ import { showcaseText } from "@/content/showcase";
 // three.js is large: load it only for this page, and only on the client.
 const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
 
+/** Lightweight CSS-only stand-in for the 3D gem (no WebGL, no JS animation). */
+function LiteGem() {
+  return (
+    <div aria-hidden="true" className="absolute inset-0 pointer-events-none flex items-start md:items-center justify-center md:justify-end md:pe-[12%] pt-24 md:pt-0">
+      <div className="relative w-56 h-56 md:w-96 md:h-96">
+        <div className="absolute inset-0 rounded-full bg-primary/25 blur-3xl" />
+        <div
+          className="absolute inset-[12%] bg-gradient-to-br from-primary via-emerald-700 to-indigo-600 shadow-[0_0_80px_rgba(16,185,129,0.4)] animate-pulse-slow"
+          style={{ clipPath: "polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)" }}
+        />
+        <div
+          className="absolute inset-0 border border-primary/30"
+          style={{ clipPath: "polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)" }}
+        />
+      </div>
+    </div>
+  );
+}
+
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-export default function ThreeHero() {
+export default function ThreeHero({ lite = false }: { lite?: boolean }) {
   const { t, language, isRTL } = useLanguage();
   const txt = showcaseText[language];
 
@@ -24,9 +43,11 @@ export default function ThreeHero() {
       <div aria-hidden="true" className="absolute bottom-0 left-[10%] w-[24rem] h-[24rem] rounded-full bg-indigo-500/20 blur-[120px]" />
 
       {/* WebGL canvas */}
-      <div className="absolute inset-0">
-        <HeroScene />
-      </div>
+      {lite ? <LiteGem /> : (
+        <div className="absolute inset-0">
+          <HeroScene />
+        </div>
+      )}
 
       {/* Text overlay: lets pointer events through except on the buttons */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-24 pointer-events-none">
@@ -61,10 +82,12 @@ export default function ThreeHero() {
               {t.ctaBtn1}
             </a>
           </div>
+          {!lite && (
           <p className="hidden md:flex items-center gap-2 text-xs text-muted-foreground">
             <MousePointer2 size={14} />
             {txt.hint3d}
           </p>
+          )}
         </motion.div>
       </div>
     </section>

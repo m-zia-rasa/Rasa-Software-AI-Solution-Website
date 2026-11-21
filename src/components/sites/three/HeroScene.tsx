@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { useReducedMotion } from "framer-motion";
+import { useInView, useReducedMotion } from "framer-motion";
 import AICore from "./AICore";
 import Particles from "./Particles";
+import AdaptiveQuality from "./AdaptiveQuality";
 
 function hasWebGL() {
   try {
@@ -20,6 +21,10 @@ export default function HeroScene() {
   const reduce = !!useReducedMotion();
   const [ok, setOk] = useState<boolean | null>(null);
   const [narrow, setNarrow] = useState(false);
+  const wrap = useRef<HTMLDivElement>(null);
+  const visible = useInView(wrap, { margin: "100px" });
+  const [dpr, setDpr] = useState<[number, number]>([1, 1.75]);
+  const [degraded, setDegraded] = useState(false);
 
   useEffect(() => {
     setOk(hasWebGL());
@@ -30,11 +35,13 @@ export default function HeroScene() {
     return () => mq.removeEventListener("change", on);
   }, []);
 
-  if (!ok) return null;
+  if (!ok) return <div ref={wrap} />;
 
   return (
+    <div ref={wrap} className="w-full h-full">
     <Canvas
-      dpr={[1, 1.75]}
+      dpr={dpr}
+      frameloop={visible ? "always" : "never"}
       camera={{ position: [0, 0, narrow ? 9.5 : 7.5], fov: 45 }}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       style={{ touchAction: "pan-y" }}
@@ -46,7 +53,14 @@ export default function HeroScene() {
       <group position={[narrow ? 0 : 2.1, narrow ? 2.3 : 0, 0]} scale={narrow ? 0.7 : 1}>
         <AICore reduceMotion={reduce} />
       </group>
-      <Particles count={narrow ? 350 : 700} reduceMotion={reduce} />
+      <Particles count={degraded ? 150 : narrow ? 350 : 700} reduceMotion={reduce} />
+      <AdaptiveQuality
+        onDegrade={() => {
+          setDpr([1, 1]);
+          setDegraded(true);
+        }}
+      />
     </Canvas>
+    </div>
   );
 }

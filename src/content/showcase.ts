@@ -14,6 +14,9 @@ export interface ShowcaseText {
   statResponse: string;
   hourUnit: string;
   hint3d: string;
+  hintDrag: string;
+  liteSwitch: string;
+  fullSwitch: string;
   modes: Record<SiteMode, { name: string; desc: string }>;
 }
 
@@ -31,6 +34,9 @@ export const showcaseText: Record<Language, ShowcaseText> = {
     statResponse: "Response time",
     hourUnit: "h",
     hint3d: "Drag to rotate · click to change color",
+    hintDrag: "Drag to rotate",
+    liteSwitch: "Lite version",
+    fullSwitch: "Enable 3D",
     modes: {
       simple: { name: "Simple", desc: "Clean, fast and focused on the goal." },
       animated: {
@@ -53,6 +59,9 @@ export const showcaseText: Record<Language, ShowcaseText> = {
     statResponse: "زمان پاسخ",
     hourUnit: "ساعت",
     hint3d: "برای چرخاندن بکشید · برای تغییر رنگ کلیک کنید",
+    hintDrag: "برای چرخاندن بکشید",
+    liteSwitch: "نسخهٔ سبک",
+    fullSwitch: "فعال‌سازی سه‌بعدی",
     modes: {
       simple: { name: "ساده", desc: "تمیز، سریع و متمرکز بر هدف." },
       animated: {
@@ -75,6 +84,9 @@ export const showcaseText: Record<Language, ShowcaseText> = {
     statResponse: "د ځواب وخت",
     hourUnit: "ساعته",
     hint3d: "د ګرځولو لپاره کش کړئ · د رنګ بدلولو لپاره کلیک وکړئ",
+    hintDrag: "د ګرځولو لپاره کش کړئ",
+    liteSwitch: "سپکه بڼه",
+    fullSwitch: "درې‌اړخیز فعال کړئ",
     modes: {
       simple: { name: "ساده", desc: "پاک، چټک او په موخه متمرکز." },
       animated: {
