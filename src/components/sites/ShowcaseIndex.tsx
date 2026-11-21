@@ -14,7 +14,7 @@ const icons: Record<SiteMode, typeof Layout> = {
   animated: Sparkles,
   "3d": Box,
 };
-const live: Record<SiteMode, boolean> = { simple: true, animated: false, "3d": false };
+const live: Record<SiteMode, boolean> = { simple: true, animated: true, "3d": false };
 
 export default function ShowcaseIndex() {
   const { language, dir, isRTL, fontClass } = useLanguage();

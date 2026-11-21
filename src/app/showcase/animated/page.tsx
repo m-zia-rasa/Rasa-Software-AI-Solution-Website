@@ -1,5 +1,5 @@
-import ComingSoon from "@/components/sites/ComingSoon";
+import AnimatedSite from "@/components/sites/AnimatedSite";
 
 export default function ShowcaseAnimated() {
-  return <ComingSoon mode="animated" />;
+  return <AnimatedSite />;
 }
