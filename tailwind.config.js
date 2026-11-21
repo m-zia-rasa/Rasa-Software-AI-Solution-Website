@@ -1,3 +1,10 @@
+const cv =
+  (name) =>
+  ({ opacityValue }) =>
+    opacityValue === undefined
+      ? `var(${name})`
+      : `color-mix(in srgb, var(${name}) calc(${opacityValue} * 100%), transparent)`;
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
@@ -8,32 +15,19 @@ module.exports = {
       padding: "1rem",
     },
     extend: {
+      // CSS variables hold plain hex values, so Tailwind cannot apply opacity modifiers
+      // (bg-primary/10, border-border/60 ...) on its own. cv() adds that support via color-mix.
       colors: {
-        background: { DEFAULT: "var(--background)" },
-        foreground: { DEFAULT: "var(--foreground)" },
-        primary: {
-          DEFAULT: "var(--primary)",
-          foreground: "var(--primary-foreground)",
-        },
-        secondary: {
-          DEFAULT: "var(--secondary)",
-          foreground: "var(--secondary-foreground)",
-        },
-        accent: {
-          DEFAULT: "var(--accent)",
-          foreground: "var(--accent-foreground)",
-        },
-        muted: {
-          DEFAULT: "var(--muted)",
-          foreground: "var(--muted-foreground)",
-        },
-        card: {
-          DEFAULT: "var(--card)",
-          foreground: "var(--card-foreground)",
-        },
-        border: { DEFAULT: "var(--border)" },
-        input: { DEFAULT: "var(--input)" },
-        ring: { DEFAULT: "var(--ring)" },
+        background: { DEFAULT: cv("--background") },
+        foreground: { DEFAULT: cv("--foreground") },
+        primary: { DEFAULT: cv("--primary"), foreground: cv("--primary-foreground") },
+        secondary: { DEFAULT: cv("--secondary"), foreground: cv("--secondary-foreground") },
+        accent: { DEFAULT: cv("--accent"), foreground: cv("--accent-foreground") },
+        muted: { DEFAULT: cv("--muted"), foreground: cv("--muted-foreground") },
+        card: { DEFAULT: cv("--card"), foreground: cv("--card-foreground") },
+        border: { DEFAULT: cv("--border") },
+        input: { DEFAULT: cv("--input") },
+        ring: { DEFAULT: cv("--ring") },
       },
       borderRadius: {
         DEFAULT: "var(--radius)",

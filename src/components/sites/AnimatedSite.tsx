@@ -31,7 +31,7 @@ export default function AnimatedSite() {
         <AnimatedServices />
         <Reveal><PortfolioSection /></Reveal>
         <Reveal><WhyRasaSection /></Reveal>
-        <Reveal><ContactSection /></Reveal>
+        <Reveal><ContactSection magnetic /></Reveal>
       </main>
       <Footer />
     </div>

@@ -17,7 +17,7 @@ export interface ShowcaseText {
   hintDrag: string;
   liteSwitch: string;
   fullSwitch: string;
-  modes: Record<SiteMode, { name: string; desc: string }>;
+  modes: Record<SiteMode, { name: string; desc: string; points: string[] }>;
 }
 
 export const showcaseText: Record<Language, ShowcaseText> = {
@@ -38,12 +38,13 @@ export const showcaseText: Record<Language, ShowcaseText> = {
     liteSwitch: "Lite version",
     fullSwitch: "Enable 3D",
     modes: {
-      simple: { name: "Simple", desc: "Clean, fast and focused on the goal." },
+      simple: { name: "Simple", desc: "Clean, fast and focused on the goal.", points: ["Fast loading", "Clear and focused", "Best for most businesses"] },
       animated: {
         name: "Animated",
         desc: "Scroll animations, entrance effects and interactive motion.",
+        points: ["Scroll and entrance effects", "Interactive cards and buttons", "Cinematic hero"],
       },
-      "3d": { name: "3D", desc: "An interactive, immersive three-dimensional experience." },
+      "3d": { name: "3D", desc: "An interactive, immersive three-dimensional experience.", points: ["Interactive 3D scene", "Services as 3D objects", "Lite version for weak devices"] },
     },
   },
   fa: {
@@ -63,12 +64,13 @@ export const showcaseText: Record<Language, ShowcaseText> = {
     liteSwitch: "نسخهٔ سبک",
     fullSwitch: "فعال‌سازی سه‌بعدی",
     modes: {
-      simple: { name: "ساده", desc: "تمیز، سریع و متمرکز بر هدف." },
+      simple: { name: "ساده", desc: "تمیز، سریع و متمرکز بر هدف.", points: ["بارگذاری سریع", "روشن و متمرکز", "مناسب بیشتر کسب‌وکارها"] },
       animated: {
         name: "متحرک",
         desc: "انیمیشن اسکرول، ورود المان‌ها و حرکت‌های تعاملی.",
+        points: ["افکت اسکرول و ورود المان‌ها", "کارت‌ها و دکمه‌های تعاملی", "بخش اصلی سینمایی"],
       },
-      "3d": { name: "سه‌بعدی", desc: "تجربهٔ تعاملی و فراگیر سه‌بعدی." },
+      "3d": { name: "سه‌بعدی", desc: "تجربهٔ تعاملی و فراگیر سه‌بعدی.", points: ["صحنهٔ سه‌بعدی تعاملی", "خدمات به‌شکل اشیای سه‌بعدی", "نسخهٔ سبک برای دستگاه‌های ضعیف"] },
     },
   },
   ps: {
@@ -88,12 +90,13 @@ export const showcaseText: Record<Language, ShowcaseText> = {
     liteSwitch: "سپکه بڼه",
     fullSwitch: "درې‌اړخیز فعال کړئ",
     modes: {
-      simple: { name: "ساده", desc: "پاک، چټک او په موخه متمرکز." },
+      simple: { name: "ساده", desc: "پاک، چټک او په موخه متمرکز.", points: ["چټک لوډ", "روښانه او متمرکز", "د ډیرو سوداګریو لپاره مناسب"] },
       animated: {
         name: "متحرک",
         desc: "د سکرول انیمیشن، د عناصرو ننوتل او تعاملي حرکتونه.",
+        points: ["د سکرول او ننوتلو اغېز", "تعاملي کارتونه او تڼۍ", "سینمایي سر برخه"],
       },
-      "3d": { name: "درې‌اړخیز", desc: "تعاملي او ژور درې‌اړخیز تجربه." },
+      "3d": { name: "درې‌اړخیز", desc: "تعاملي او ژور درې‌اړخیز تجربه.", points: ["تعاملي درې‌اړخیزه صحنه", "خدمتونه د درې‌اړخیزو شیانو په بڼه", "د ضعیفو وسایلو لپاره سپکه بڼه"] },
     },
   },
 };

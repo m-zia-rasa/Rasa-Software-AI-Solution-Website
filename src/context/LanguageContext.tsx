@@ -235,7 +235,7 @@ const translations: Record<Language, Translations> = {
     project2Title: "چت‌بات RAG بومی‌سازی‌شده",
     project2Desc:
       "یک سیستم RAG با دقت بالا که برای زمینه‌های فارسی/دری تنظیم شده و مشکل توهم در هوش مصنوعی زبان محلی را حل می‌کند.",
-    whyTitle: "چرا راسا؟",
+    whyTitle: "چرا رسا؟",
     whySubtitle:
       "نه فقط کد — مشارکت‌های استراتژیک هوش مصنوعی بر پایه دقت علمی و تخصص محلی.",
     whyFounder:

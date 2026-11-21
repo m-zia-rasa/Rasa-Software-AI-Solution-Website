@@ -11,8 +11,9 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { siteConfig } from "@/config/site";
+import Magnetic from "@/components/sites/animated/Magnetic";
 
-export default function ContactSection() {
+export default function ContactSection({ magnetic = false }: { magnetic?: boolean }) {
   const { t, isRTL, fontClass } = useLanguage();
 
   const [form, setForm] = useState({ name: "", contact: "", message: "" });
@@ -25,7 +26,7 @@ export default function ContactSection() {
   };
 
   const inputClass =
-    "w-full rounded-xl bg-background/60 border border-border/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/60 focus:ring-2 focus:ring-primary/20 transition-colors";
+    "w-full rounded-xl bg-secondary/60 border border-border/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/60 focus:ring-2 focus:ring-primary/20 transition-colors";
 
   const actions = [
     {
@@ -104,7 +105,7 @@ export default function ContactSection() {
             >
               {actions?.map((action) => {
                 const Icon = action?.icon;
-                return (
+                const link = (
                   <a
                     key={action?.label}
                     href={action?.href}
@@ -127,6 +128,11 @@ export default function ContactSection() {
                       />
                     )}
                   </a>
+                );
+                return magnetic ? (
+                  <Magnetic key={action?.label}>{link}</Magnetic>
+                ) : (
+                  link
                 );
               })}
             </div>

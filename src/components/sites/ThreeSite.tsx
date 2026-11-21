@@ -12,6 +12,9 @@ import ContactSection from "@/app/components/ContactSection";
 import { showcaseText } from "@/content/showcase";
 import ThreeHero from "./three/ThreeHero";
 import ThreeServices from "./three/ThreeServices";
+import ThreePortfolio from "./three/ThreePortfolio";
+import ThreeWhy from "./three/ThreeWhy";
+import ThreeContact from "./three/ThreeContact";
 import { useGraphicsTier } from "./three/useGraphicsTier";
 
 /**
@@ -52,9 +55,9 @@ export default function ThreeSite() {
         {!ready && <section className="min-h-screen" aria-hidden="true" />}
         <TechStackSection />
         {lite ? <ServicesSection /> : <ThreeServices />}
-        <PortfolioSection />
-        <WhyRasaSection />
-        <ContactSection />
+        {lite ? <PortfolioSection /> : <ThreePortfolio />}
+        {lite ? <WhyRasaSection /> : <ThreeWhy />}
+        {lite ? <ContactSection /> : <ThreeContact />}
       </main>
       <Footer />
       {ready && (

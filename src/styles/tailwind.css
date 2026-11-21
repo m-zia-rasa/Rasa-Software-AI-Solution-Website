@@ -189,3 +189,18 @@
         filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.5));
     }
 }
+/* 3D showcase helpers */
+@keyframes spin3d {
+    from { transform: rotateX(-14deg) rotateY(0deg); }
+    to { transform: rotateX(-14deg) rotateY(360deg); }
+}
+.spin-cube {
+    animation: spin3d 26s linear infinite;
+    transform-style: preserve-3d;
+}
+.spin-cube-wrap:hover .spin-cube {
+    animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+    .spin-cube { animation: none; transform: rotateX(-14deg) rotateY(-25deg); }
+}
