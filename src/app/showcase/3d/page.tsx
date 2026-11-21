@@ -1,5 +1,5 @@
-import ComingSoon from "@/components/sites/ComingSoon";
+import ThreeSite from "@/components/sites/ThreeSite";
 
 export default function ShowcaseThreeD() {
-  return <ComingSoon mode="3d" />;
+  return <ThreeSite />;
 }
