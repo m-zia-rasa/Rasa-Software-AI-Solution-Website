@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import Magnetic from "./Magnetic";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -130,7 +131,7 @@ export default function CinematicHero() {
           animate="show"
           className="flex flex-col sm:flex-row gap-3"
         >
-          <a
+          <Magnetic><a
             href="#services"
             className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground font-semibold text-sm rounded-xl glow-emerald hover:scale-105 active:scale-95 transition-transform duration-300"
           >
@@ -141,13 +142,13 @@ export default function CinematicHero() {
                 isRTL ? "rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1"
               }`}
             />
-          </a>
-          <a
+          </a></Magnetic>
+          <Magnetic><a
             href="#contact"
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-border bg-secondary/50 backdrop-blur text-foreground font-semibold text-sm rounded-xl hover:border-primary/50 hover:bg-primary/10 hover:scale-105 active:scale-95 transition-all duration-300"
           >
             {t.ctaBtn1}
-          </a>
+          </a></Magnetic>
         </motion.div>
       </motion.div>
 

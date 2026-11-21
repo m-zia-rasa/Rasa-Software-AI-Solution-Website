@@ -9,6 +9,10 @@ export interface ShowcaseText {
   soon: string;
   soonBody: string;
   back: string;
+  statServices: string;
+  statLanguages: string;
+  statResponse: string;
+  hourUnit: string;
   modes: Record<SiteMode, { name: string; desc: string }>;
 }
 
@@ -21,6 +25,10 @@ export const showcaseText: Record<Language, ShowcaseText> = {
     soon: "Coming soon",
     soonBody: "This style is being built and will appear here shortly.",
     back: "All styles",
+    statServices: "Service areas",
+    statLanguages: "Languages",
+    statResponse: "Response time",
+    hourUnit: "h",
     modes: {
       simple: { name: "Simple", desc: "Clean, fast and focused on the goal." },
       animated: {
@@ -38,6 +46,10 @@ export const showcaseText: Record<Language, ShowcaseText> = {
     soon: "به‌زودی",
     soonBody: "این سبک در حال ساخت است و به‌زودی اینجا قرار می‌گیرد.",
     back: "همهٔ سبک‌ها",
+    statServices: "حوزهٔ خدمات",
+    statLanguages: "زبان",
+    statResponse: "زمان پاسخ",
+    hourUnit: "ساعت",
     modes: {
       simple: { name: "ساده", desc: "تمیز، سریع و متمرکز بر هدف." },
       animated: {
@@ -55,6 +67,10 @@ export const showcaseText: Record<Language, ShowcaseText> = {
     soon: "ډیر ژر",
     soonBody: "دا سټایل جوړیږي او ډیر ژر به دلته راشي.",
     back: "ټول سټایلونه",
+    statServices: "د خدمتونو برخې",
+    statLanguages: "ژبې",
+    statResponse: "د ځواب وخت",
+    hourUnit: "ساعته",
     modes: {
       simple: { name: "ساده", desc: "پاک، چټک او په موخه متمرکز." },
       animated: {
