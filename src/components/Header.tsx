@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X, Phone } from "lucide-react";
 import AppLogo from "@/components/ui/AppLogo";
 import { useLanguage, Language } from "@/context/LanguageContext";
+import { showcaseText } from "@/content/showcase";
 
 export default function Header() {
   const { t, language, setLanguage, isRTL, fontClass } = useLanguage();
@@ -37,6 +38,7 @@ export default function Header() {
   const navLinks = [
     { href: "/#services", label: t.navServices },
     { href: "/portfolio", label: t.navPortfolio },
+    { href: "/showcase", label: showcaseText[language].pageTitle },
     { href: "/#why-rasa", label: t.navAbout },
     { href: "/#contact", label: t.navContact },
   ];
