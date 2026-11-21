@@ -27,6 +27,12 @@ interface Translations {
   service2Desc: string;
   service3Title: string;
   service3Desc: string;
+  service4Title: string;
+  service4Desc: string;
+  service5Title: string;
+  service5Desc: string;
+  service6Title: string;
+  service6Desc: string;
   portfolioTitle: string;
   portfolioSubtitle: string;
   project1Title: string;
@@ -59,6 +65,21 @@ interface Translations {
   footerTagline: string;
   footerPrivacy: string;
   footerTerms: string;
+  heroCardLabel: string;
+  heroCardValue: string;
+  formTitle: string;
+  formName: string;
+  formContact: string;
+  formMessage: string;
+  formSend: string;
+  formHint: string;
+  legalBack: string;
+  whyStat1Value: string;
+  whyStat1Label: string;
+  whyStat2Value: string;
+  whyStat2Label: string;
+  whyStat3Value: string;
+  whyStat3Label: string;
   footerRights: string;
   backToHome: string;
   caseStudies: string;
@@ -84,7 +105,7 @@ const translations: Record<Language, Translations> = {
       "We build scalable mobile apps, custom RAG chatbots, and AI-driven automation tailored for the Afghan market and global diaspora. Master's level engineering, delivered.",
     heroCta1: "Explore Our Work",
     heroCta2: "Contact Us on WhatsApp",
-    clientsTrust: "20+ clients trust RASA",
+    clientsTrust: "AI assistants in Dari, Pashto & English",
     projectsDelivered: "Projects Delivered",
     nativeNlp: "Native Language NLP",
     servicesTitle: "What We Build",
@@ -99,6 +120,12 @@ const translations: Record<Language, Translations> = {
     service3Title: "AI Automation & Integration",
     service3Desc:
       "Connecting AI models to your existing business tools, WhatsApp, Telegram, and databases to save time and reduce costs.",
+    service4Title: "Website Design",
+    service4Desc: "Fast, modern websites — simple, animated or 3D — built multilingual and SEO-ready from day one.",
+    service5Title: "Custom Business Systems",
+    service5Desc: "CRM, inventory, sales and accounting systems tailored to how your business actually works.",
+    service6Title: "Desktop Applications",
+    service6Desc: "Windows and macOS software for offices, shops and factories — fast, reliable and able to work offline.",
     portfolioTitle: "Proof of Work",
     portfolioSubtitle: "Real projects. Real impact. Built to last.",
     project1Title: "AfghanTrafficApp",
@@ -124,7 +151,7 @@ const translations: Record<Language, Translations> = {
     ctaBtn3: "Email Us",
     availableForProjects: "Available for Projects",
     contactNote:
-      "Free 30-minute consultation · No commitment required · Response within 24 hours",
+      "Free consultation · Response within 24 hours",
     learnMore: "Learn more",
     academicBackground: "Academic Background",
     navServices: "Services",
@@ -138,6 +165,21 @@ const translations: Record<Language, Translations> = {
       "Next-Gen AI & Custom Software for the Afghan market and global diaspora.",
     footerPrivacy: "Privacy Policy",
     footerTerms: "Terms",
+    heroCardLabel: "First consultation",
+    heroCardValue: "Free",
+    formTitle: "Tell us about your project",
+    formName: "Your name",
+    formContact: "Email or phone",
+    formMessage: "What do you need?",
+    formSend: "Send message",
+    formHint: "Opens your email app with the message ready to send.",
+    legalBack: "Back to home",
+    whyStat1Value: "3",
+    whyStat1Label: "Languages: Dari, Pashto, English",
+    whyStat2Value: "MSc",
+    whyStat2Label: "Academic Level",
+    whyStat3Value: "24h",
+    whyStat3Label: "Response Time",
     footerRights: "RASA Software & AI Solutions. All rights reserved.",
     backToHome: "Back to Home",
     caseStudies: "Case Studies",
@@ -164,7 +206,7 @@ const translations: Record<Language, Translations> = {
       "ما اپلیکیشن‌های موبایل مقیاس‌پذیر، چت‌بات‌های RAG سفارشی، و اتوماسیون مبتنی بر هوش مصنوعی را برای بازار افغانستان و دیاسپورای جهانی می‌سازیم. مهندسی در سطح کارشناسی ارشد، تحویل داده می‌شود.",
     heroCta1: "مشاهده نمونه‌کارها",
     heroCta2: "تماس از طریق واتساپ",
-    clientsTrust: "بیش از ۲۰ مشتری به راسا اعتماد دارند",
+    clientsTrust: "دستیار هوشمند به دری، پشتو و انگلیسی",
     projectsDelivered: "پروژه تحویل‌شده",
     nativeNlp: "پردازش زبان بومی",
     servicesTitle: "خدمات ما",
@@ -179,6 +221,12 @@ const translations: Record<Language, Translations> = {
     service3Title: "اتوماسیون و یکپارچه‌سازی هوش مصنوعی",
     service3Desc:
       "اتصال مدل‌های هوش مصنوعی به ابزارهای موجود کسب‌وکار، واتساپ، تلگرام و پایگاه داده برای صرفه‌جویی در زمان.",
+    service4Title: "طراحی وب‌سایت",
+    service4Desc: "وب‌سایت‌های سریع و مدرن — ساده، متحرک یا سه‌بعدی — با پشتیبانی چندزبانه و آماده برای سئو.",
+    service5Title: "سیستم‌های اختصاصی کسب‌وکار",
+    service5Desc: "سیستم‌های CRM، انبار، فروش و حسابداری که دقیقاً مطابق نیاز کسب‌وکار شما ساخته می‌شوند.",
+    service6Title: "نرم‌افزار دسکتاپ",
+    service6Desc: "نرم‌افزار ویندوز و مک برای دفاتر، فروشگاه‌ها و کارخانه‌ها — سریع، پایدار و قابل استفاده بدون اینترنت.",
     portfolioTitle: "نمونه کارها",
     portfolioSubtitle: "پروژه‌های واقعی. تأثیر واقعی. ساخته‌شده برای ماندگاری.",
     project1Title: "اپلیکیشن ترافیک افغانستان",
@@ -204,7 +252,7 @@ const translations: Record<Language, Translations> = {
     ctaBtn3: "ایمیل به ما",
     availableForProjects: "آماده پذیرش پروژه",
     contactNote:
-      "مشاوره رایگان ۳۰ دقیقه‌ای · بدون تعهد · پاسخ در کمتر از ۲۴ ساعت",
+      "مشاوره رایگان · پاسخ در کمتر از ۲۴ ساعت",
     learnMore: "بیشتر بدانید",
     academicBackground: "پیشینه علمی",
     navServices: "خدمات",
@@ -218,6 +266,21 @@ const translations: Record<Language, Translations> = {
       "هوش مصنوعی و نرم‌افزار نسل جدید برای بازار افغانستان و دیاسپورای جهانی.",
     footerPrivacy: "سیاست حریم خصوصی",
     footerTerms: "شرایط",
+    heroCardLabel: "مشاوره اول",
+    heroCardValue: "رایگان",
+    formTitle: "دربارهٔ پروژه‌تان بگویید",
+    formName: "نام شما",
+    formContact: "ایمیل یا شمارهٔ تماس",
+    formMessage: "به چه چیزی نیاز دارید؟",
+    formSend: "ارسال پیام",
+    formHint: "برنامهٔ ایمیل شما با پیام آماده باز می‌شود.",
+    legalBack: "بازگشت به صفحهٔ اصلی",
+    whyStat1Value: "۳",
+    whyStat1Label: "زبان: دری، پشتو، انگلیسی",
+    whyStat2Value: "MSc",
+    whyStat2Label: "سطح علمی",
+    whyStat3Value: "۲۴ ساعت",
+    whyStat3Label: "زمان پاسخ",
     footerRights: "RASA Software & AI Solutions. تمام حقوق محفوظ است.",
     backToHome: "بازگشت به خانه",
     caseStudies: "مطالعات موردی",
@@ -243,7 +306,7 @@ const translations: Record<Language, Translations> = {
       "موږ د افغانستان بازار او نړیوالې دیاسپورا لپاره د مقیاس وړ موبایل ایپس، دودیز RAG چټ بوټس، او د هوښیار ماشین پر بنسټ اتومات کول جوړوو. د ماسټر کچې انجنیري، وړاندې کیږي.",
     heroCta1: "زموږ کار وګورئ",
     heroCta2: "په واټساپ کې مو سره اړیکه ونیسئ",
-    clientsTrust: "له ۲۰ څخه زیات پیرودونکي په RASA باور لري",
+    clientsTrust: "په دري، پښتو او انګلیسي AI مرستندویان",
     projectsDelivered: "تحویل شوې پروژې",
     nativeNlp: "د اصلي ژبې NLP",
     servicesTitle: "زموږ خدمتونه",
@@ -258,6 +321,12 @@ const translations: Record<Language, Translations> = {
     service3Title: "د AI اتومیشن او یوځایکول",
     service3Desc:
       "د AI ماډلونو د موجوده سوداګریز وسیلو، واټساپ، ټیلیګرام او ډیټابیسونو سره د وخت او لګښت خوندیتوب لپاره اتصال.",
+    service4Title: "د ویب‌پاڼو ډیزاین",
+    service4Desc: "چټک او عصري ویب‌پاڼې — ساده، متحرکې یا درې‌اړخیزې — د څو‌ژبو ملاتړ او SEO سره.",
+    service5Title: "د سوداګرۍ ځانګړي سیسټمونه",
+    service5Desc: "د CRM، ګودام، پلورنې او محاسبې سیسټمونه چې ستاسو د سوداګرۍ اړتیاوو سره سم جوړیږي.",
+    service6Title: "د ډیسکټاپ پروګرامونه",
+    service6Desc: "د دفترونو، دوکانونو او فابریکو لپاره د وینډوز او مک پروګرامونه — چټک، باوري او پرته له انټرنیټه کارېدونکي.",
     portfolioTitle: "د کار ثبوت",
     portfolioSubtitle: "ریښتیني پروژې. ریښتینی اغیز. د دوام لپاره جوړ شوی.",
     project1Title: "د افغانستان ټرافیک اپ",
@@ -282,7 +351,7 @@ const translations: Record<Language, Translations> = {
     ctaBtn2: "واټساپ پیغام",
     ctaBtn3: "موږ ته بریښنالیک",
     availableForProjects: "د پروژو لپاره چمتو",
-    contactNote: "وړیا ۳۰ دقیقې مشوره · پرته له ژمنې · په ۲۴ ساعتونو کې ځواب",
+    contactNote: "وړیا مشوره · په ۲۴ ساعتونو کې ځواب",
     learnMore: "نور ولولئ",
     academicBackground: "علمي شالید",
     navServices: "خدمتونه",
@@ -296,6 +365,21 @@ const translations: Record<Language, Translations> = {
       "د افغانستان بازار او نړیوالې دیاسپورا لپاره نوې نسل AI او دودیز سافټویر.",
     footerPrivacy: "د محرمیت پالیسي",
     footerTerms: "شرایط",
+    heroCardLabel: "لومړۍ مشوره",
+    heroCardValue: "وړیا",
+    formTitle: "موږ ته د خپلې پروژې په اړه ووایاست",
+    formName: "ستاسو نوم",
+    formContact: "بریښنالیک یا شمیره",
+    formMessage: "تاسو څه ته اړتیا لرئ؟",
+    formSend: "پیغام ولېږئ",
+    formHint: "ستاسو د بریښنالیک اپ به له تیار پیغام سره خلاص شي.",
+    legalBack: "کور ته ستنیدل",
+    whyStat1Value: "۳",
+    whyStat1Label: "ژبې: دري، پښتو، انګلیسي",
+    whyStat2Value: "MSc",
+    whyStat2Label: "علمي کچه",
+    whyStat3Value: "۲۴ ساعته",
+    whyStat3Label: "د ځواب وخت",
     footerRights: "RASA Software & AI Solutions. ټول حقوق خوندي دي.",
     backToHome: "کور ته بیرته",
     caseStudies: "د قضیې مطالعې",

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import {
   Atom,
   Smartphone,
@@ -57,31 +56,6 @@ export default function TechStackSection() {
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-3 gap-6 max-w-lg mx-auto"
-        >
-          {[
-            { value: t?.statsYears, label: t?.statsLabel1 },
-            { value: t?.statsProjects, label: t?.statsLabel2 },
-            { value: t?.statsClients, label: t?.statsLabel3 },
-          ]?.map((stat) => (
-            <div key={stat?.label} className="flex flex-col items-center gap-1">
-              <span className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
-                {stat?.value}
-              </span>
-              <span className="text-xs text-muted-foreground uppercase tracking-widest text-center">
-                {stat?.label}
-              </span>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

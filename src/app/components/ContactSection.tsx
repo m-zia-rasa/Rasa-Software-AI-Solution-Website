@@ -1,33 +1,56 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Calendar, MessageCircle, Mail, ArrowRight } from "lucide-react";
+import {
+  Calendar,
+  MessageCircle,
+  Mail,
+  ArrowRight,
+  Send,
+} from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { siteConfig } from "@/config/site";
 
 export default function ContactSection() {
   const { t, isRTL, fontClass } = useLanguage();
+
+  const [form, setForm] = useState({ name: "", contact: "", message: "" });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const subject = `RASA website inquiry — ${form.name}`;
+    const body = `${form.message}\n\n— ${form.name}\n${form.contact}`;
+    window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
+  const inputClass =
+    "w-full rounded-xl bg-background/60 border border-border/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/60 focus:ring-2 focus:ring-primary/20 transition-colors";
 
   const actions = [
     {
       icon: Calendar,
       label: t?.ctaBtn1,
-      href: "#",
+      href: "#contact-form",
       primary: true,
       color: "bg-primary text-primary-foreground glow-emerald hover:opacity-90",
     },
-    {
-      icon: MessageCircle,
-      label: t?.ctaBtn2,
-      href: "https://wa.me/93000000000",
-      primary: false,
-      color:
-        "bg-secondary/70 border border-border/80 text-foreground hover:border-primary/50 hover:bg-primary/10",
-    },
+    ...(siteConfig.whatsapp
+      ? [
+          {
+            icon: MessageCircle,
+            label: t?.ctaBtn2,
+            href: `https://wa.me/${siteConfig.whatsapp}`,
+            primary: false,
+            color:
+              "bg-secondary/70 border border-border/80 text-foreground hover:border-primary/50 hover:bg-primary/10",
+          },
+        ]
+      : []),
     {
       icon: Mail,
       label: t?.ctaBtn3,
-      href: "mailto:hello@rasasoft.ai",
+      href: `mailto:${siteConfig.email}`,
       primary: false,
       color:
         "bg-secondary/70 border border-border/80 text-foreground hover:border-accent/50 hover:bg-accent/10",
@@ -107,6 +130,56 @@ export default function ContactSection() {
                 );
               })}
             </div>
+
+            {/* Contact form (opens the visitor's email app) */}
+            <form
+              id="contact-form"
+              onSubmit={handleSubmit}
+              className={`w-full max-w-xl mt-4 flex flex-col gap-3 scroll-mt-24 ${isRTL ? "text-right" : "text-left"}`}
+            >
+              <h3 className="text-base font-bold text-foreground text-center mb-1">
+                {t.formTitle}
+              </h3>
+              <input
+                required
+                type="text"
+                autoComplete="name"
+                aria-label={t.formName}
+                placeholder={t.formName}
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className={inputClass}
+              />
+              <input
+                required
+                type="text"
+                autoComplete="email"
+                aria-label={t.formContact}
+                placeholder={t.formContact}
+                value={form.contact}
+                onChange={(e) => setForm({ ...form, contact: e.target.value })}
+                className={inputClass}
+              />
+              <textarea
+                required
+                rows={4}
+                aria-label={t.formMessage}
+                placeholder={t.formMessage}
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                className={`${inputClass} resize-y`}
+              />
+              <button
+                type="submit"
+                className={`inline-flex items-center justify-center gap-2 px-5 py-3 font-semibold text-sm rounded-xl bg-primary text-primary-foreground glow-emerald hover:opacity-90 transition-all duration-300 ${isRTL ? "flex-row-reverse" : ""}`}
+              >
+                <Send size={16} className={isRTL ? "-scale-x-100" : ""} />
+                {t.formSend}
+              </button>
+              <p className="text-xs text-muted-foreground text-center">
+                {t.formHint}
+              </p>
+            </form>
 
             {/* Trust note */}
             <p className="text-xs text-muted-foreground">{t.contactNote}</p>

@@ -87,14 +87,18 @@ export default function WhyRasaSection() {
             <div className="mt-4 grid grid-cols-3 gap-3">
               {[
                 {
-                  value: "100%",
-                  label: "Client Satisfaction",
+                  value: t.whyStat1Value,
+                  label: t.whyStat1Label,
                   color: "text-primary",
                 },
-                { value: "5+", label: "Years in AI/ML", color: "text-accent" },
                 {
-                  value: "MSc",
-                  label: "Academic Level",
+                  value: t.whyStat2Value,
+                  label: t.whyStat2Label,
+                  color: "text-accent",
+                },
+                {
+                  value: t.whyStat3Value,
+                  label: t.whyStat3Label,
                   color: "text-indigo-400",
                 },
               ]?.map((stat) => (

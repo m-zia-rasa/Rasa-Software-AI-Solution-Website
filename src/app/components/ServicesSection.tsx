@@ -1,21 +1,43 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Brain, Smartphone, Zap, ArrowRight } from "lucide-react";
+import {
+  Brain,
+  Smartphone,
+  Zap,
+  ArrowRight,
+  Globe,
+  LayoutDashboard,
+  Monitor,
+} from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
-const serviceIcons = [Brain, Smartphone, Zap];
+const serviceIcons = [Globe, Smartphone, LayoutDashboard, Monitor, Brain, Zap];
 
 const serviceGradients = [
   "from-primary/20 to-primary/5",
   "from-accent/20 to-accent/5",
   "from-indigo-500/20 to-indigo-500/5",
+  "from-primary/20 to-primary/5",
+  "from-accent/20 to-accent/5",
+  "from-indigo-500/20 to-indigo-500/5",
 ];
 
-const serviceIconColors = ["text-primary", "text-accent", "text-indigo-400"];
+const serviceIconColors = [
+  "text-primary",
+  "text-accent",
+  "text-indigo-400",
+  "text-primary",
+  "text-accent",
+  "text-indigo-400",
+];
 
 const serviceBorderHover = [
+  "hover:border-primary/50 hover:shadow-emerald-500/10",
+  "hover:border-accent/50 hover:shadow-amber-500/10",
+  "hover:border-indigo-500/50 hover:shadow-indigo-500/10",
   "hover:border-primary/50 hover:shadow-emerald-500/10",
   "hover:border-accent/50 hover:shadow-amber-500/10",
   "hover:border-indigo-500/50 hover:shadow-indigo-500/10",
@@ -25,9 +47,12 @@ export default function ServicesSection() {
   const { t, isRTL, fontClass } = useLanguage();
 
   const services = [
-    { title: t?.service1Title, desc: t?.service1Desc },
-    { title: t?.service2Title, desc: t?.service2Desc },
-    { title: t?.service3Title, desc: t?.service3Desc },
+    { title: t.service4Title, desc: t.service4Desc },
+    { title: t.service2Title, desc: t.service2Desc },
+    { title: t.service5Title, desc: t.service5Desc },
+    { title: t.service6Title, desc: t.service6Desc },
+    { title: t.service1Title, desc: t.service1Desc },
+    { title: t.service3Title, desc: t.service3Desc },
   ];
 
   return (
@@ -49,7 +74,7 @@ export default function ServicesSection() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 mb-4">
             <span className="text-xs font-semibold text-primary uppercase tracking-wide">
-              Services
+              {t.navServices}
             </span>
           </div>
           <h2 className="text-section-title font-bold text-foreground mb-3">
@@ -95,16 +120,16 @@ export default function ServicesSection() {
                   {service?.desc}
                 </p>
                 {/* Arrow link */}
-                <a
+                <Link
                   href="/#contact"
-                  className={`mt-5 flex items-center gap-2 text-xs font-semibold ${serviceIconColors?.[i]} opacity-0 group-hover:opacity-100 transition-all duration-300 ${isRTL ? "flex-row-reverse" : ""}`}
+                  className={`mt-5 flex items-center gap-2 text-xs font-semibold ${serviceIconColors?.[i]} opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-all duration-300 ${isRTL ? "flex-row-reverse" : ""}`}
                 >
                   <span>{t.learnMore}</span>
                   <ArrowRight
                     size={14}
                     className={`transition-transform duration-300 ${isRTL ? "group-hover:-translate-x-1 rotate-180" : "group-hover:translate-x-1"}`}
                   />
-                </a>
+                </Link>
                 {/* Decorative corner */}
                 <div
                   className={`absolute top-0 ${isRTL ? "left-0 rounded-tl-2xl" : "right-0 rounded-tr-2xl"} w-16 h-16 bg-gradient-to-br ${serviceGradients?.[i]} opacity-30 pointer-events-none`}

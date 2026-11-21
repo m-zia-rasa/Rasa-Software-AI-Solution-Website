@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { siteConfig } from "@/config/site";
 
 export default function HeroSection() {
   const { t, isRTL, fontClass } = useLanguage();
@@ -309,13 +310,18 @@ export default function HeroSection() {
                 />
               </a>
               <a
-                href="https://wa.me/93000000000"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={
+                  siteConfig.whatsapp
+                    ? `https://wa.me/${siteConfig.whatsapp}`
+                    : "#contact-form"
+                }
+                {...(siteConfig.whatsapp
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border bg-secondary/50 text-foreground font-semibold text-sm rounded-xl hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 backdrop-blur-sm"
               >
                 <MessageCircle size={16} className="text-primary" />
-                {t.heroCta2}
+                {siteConfig.whatsapp ? t.heroCta2 : t.ctaBtn1}
               </a>
             </motion.div>
 
@@ -324,17 +330,10 @@ export default function HeroSection() {
               variants={itemVariants}
               className={`flex items-center gap-4 pt-2 ${isRTL ? "flex-row-reverse" : ""}`}
             >
-              <div className="flex -space-x-2">
-                {["#10b981", "#f59e0b", "#6366f1"].map((color, i) => (
-                  <div
-                    key={i}
-                    className="w-8 h-8 rounded-full border-2 border-background flex items-center justify-center text-xs font-bold text-primary-foreground"
-                    style={{ backgroundColor: color }}
-                  >
-                    {["M", "A", "S"][i]}
-                  </div>
-                ))}
-              </div>
+              <span
+                className="w-2 h-2 rounded-full bg-primary animate-pulse-slow"
+                aria-hidden="true"
+              />
               <p className="text-xs text-muted-foreground">
                 {t.clientsTrust}
               </p>
@@ -351,12 +350,34 @@ export default function HeroSection() {
             {/* Main visual card */}
             <div className="relative rounded-2xl overflow-hidden border border-border/60 shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 z-10" />
-              <img
-                src="https://img.rocket.new/generatedImages/rocket_gen_img_15afdb008-1772093387845.png"
-                alt="AI technology abstract visualization — dark blue neural network with glowing emerald connection nodes on deep navy background"
-                className="w-full h-72 sm:h-80 lg:h-96 object-cover opacity-80"
-                loading="eager"
-              />
+              <svg
+                viewBox="0 0 600 400"
+                role="img"
+                aria-label="Neural network visualization"
+                className="w-full h-72 sm:h-80 lg:h-96 bg-gradient-to-br from-secondary to-background"
+                preserveAspectRatio="xMidYMid slice"
+              >
+                <g stroke="#10b981" strokeOpacity="0.35" strokeWidth="1.5">
+                  {[
+                    [90, 90, 250, 70], [90, 90, 250, 200], [90, 200, 250, 70],
+                    [90, 200, 250, 200], [90, 200, 250, 330], [90, 310, 250, 200],
+                    [90, 310, 250, 330], [250, 70, 420, 130], [250, 200, 420, 130],
+                    [250, 200, 420, 270], [250, 330, 420, 270], [250, 70, 420, 270],
+                    [420, 130, 530, 200], [420, 270, 530, 200],
+                  ].map(([x1, y1, x2, y2], i) => (
+                    <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />
+                  ))}
+                </g>
+                {[
+                  [90, 90], [90, 200], [90, 310], [250, 70], [250, 200],
+                  [250, 330], [420, 130], [420, 270], [530, 200],
+                ].map(([cx, cy], i) => (
+                  <g key={i}>
+                    <circle cx={cx} cy={cy} r="16" fill="#10b981" fillOpacity="0.12" />
+                    <circle cx={cx} cy={cy} r="6" fill={i % 3 === 1 ? "#f59e0b" : "#10b981"} />
+                  </g>
+                ))}
+              </svg>
 
               {/* Scrim for text contrast */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-10" />
@@ -369,9 +390,11 @@ export default function HeroSection() {
               className={`absolute -bottom-4 ${isRTL ? "left-4 sm:-left-6" : "right-4 sm:-right-6"} glass-card rounded-xl p-4 z-20 min-w-[140px]`}
             >
               <p className="text-xs text-muted-foreground font-medium mb-1">
-                {t.projectsDelivered}
+                {t.heroCardLabel}
               </p>
-              <p className="text-2xl font-bold text-foreground">30+</p>
+              <p className="text-2xl font-bold text-foreground">
+                {t.heroCardValue}
+              </p>
               <div className="mt-1 h-1 w-full bg-border rounded-full overflow-hidden">
                 <div className="h-full w-4/5 bg-primary rounded-full" />
               </div>

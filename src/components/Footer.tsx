@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import AppLogo from "@/components/ui/AppLogo";
 import { useLanguage } from "@/context/LanguageContext";
+import { siteConfig } from "@/config/site";
 
 function GithubIcon({ size = 16 }: { size?: number }) {
   return (
@@ -91,33 +92,39 @@ export default function Footer() {
           >
             <div className="flex gap-6">
               <Link
-                href="#"
+                href="/privacy"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium"
               >
                 {t.footerPrivacy}
               </Link>
               <Link
-                href="#"
+                href="/terms"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium"
               >
                 {t.footerTerms}
               </Link>
             </div>
             <div className="flex gap-3">
-              <Link
-                href="#"
-                className="w-10 h-10 rounded-lg glass-card border border-border/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <LinkedinIcon size={16} />
-              </Link>
-              <Link
-                href="#"
+              {siteConfig.linkedin && (
+                <a
+                  href={siteConfig.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg glass-card border border-border/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <LinkedinIcon size={16} />
+                </a>
+              )}
+              <a
+                href={siteConfig.github}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg glass-card border border-border/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"
                 aria-label="GitHub"
               >
                 <GithubIcon size={16} />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

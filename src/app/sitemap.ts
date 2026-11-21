@@ -1,7 +1,8 @@
+import { siteConfig } from "@/config/site";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://rasasoft.ai";
+  const baseUrl = siteConfig.url;
   return [
     {
       url: baseUrl,
@@ -14,6 +15,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date("2026-08-21"),
       changeFrequency: "monthly",
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: new Date("2026-11-21"),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date("2026-11-21"),
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
   ];
 }
