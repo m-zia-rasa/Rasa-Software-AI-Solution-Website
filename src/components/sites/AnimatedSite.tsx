@@ -14,6 +14,7 @@ import CinematicHero from "./animated/CinematicHero";
 import Reveal from "./animated/Reveal";
 import AnimatedServices from "./animated/AnimatedServices";
 import CursorGlow from "./animated/CursorGlow";
+import ProcessTimeline from "./animated/ProcessTimeline";
 
 /** The animated version of the RASA website (scroll + entrance motion). */
 export default function AnimatedSite() {
@@ -32,6 +33,7 @@ export default function AnimatedSite() {
         <Reveal><TechStackSection /></Reveal>
         <AnimatedServices />
         <Reveal><PortfolioSection /></Reveal>
+        <ProcessTimeline />
         <Reveal><WhyRasaSection /></Reveal>
         <Reveal><ContactSection magnetic /></Reveal>
       </main>

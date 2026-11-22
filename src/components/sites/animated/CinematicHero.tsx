@@ -11,8 +11,11 @@ import {
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import Magnetic from "./Magnetic";
+import FloatingChips from "./FloatingChips";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
+// the "AI" words of the headline in each language get the animated gradient
+const HIGHLIGHT = new Set(["AI", "هوش", "مصنوعی", "مصنوعي", "هوش"]);
 
 export default function CinematicHero() {
   const { t, isRTL } = useLanguage();
@@ -80,6 +83,8 @@ export default function CinematicHero() {
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
       />
 
+      <FloatingChips />
+
       {/* Content */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
@@ -100,14 +105,14 @@ export default function CinematicHero() {
           aria-label={t.heroHeadline}
         >
           {words.map((w, i) => (
-            <span key={i} className="inline-block overflow-hidden pb-[0.12em]" aria-hidden="true">
+            <span key={i} className="inline-block overflow-hidden pb-[0.3em] -mb-[0.18em]" aria-hidden="true">
               <motion.span
                 custom={i}
                 variants={wordVariants}
                 initial="hidden"
                 animate="show"
                 className={`inline-block ${
-                  w.toLowerCase() === "ai" || w === "AI" ? "gradient-text" : ""
+                  HIGHLIGHT.has(w) ? "gradient-text shimmer" : ""
                 }`}
               >
                 {w}

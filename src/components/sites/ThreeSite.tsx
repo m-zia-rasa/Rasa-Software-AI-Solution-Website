@@ -16,6 +16,8 @@ import ThreeServices from "./three/ThreeServices";
 import ThreePortfolio from "./three/ThreePortfolio";
 import ThreeWhy from "./three/ThreeWhy";
 import ThreeContact from "./three/ThreeContact";
+import ThreeRing from "./three/ThreeRing";
+import Tilt3DReveal from "./three/Tilt3DReveal";
 import { useGraphicsTier } from "./three/useGraphicsTier";
 
 /**
@@ -55,11 +57,11 @@ export default function ThreeSite() {
         {ready && <ThreeHero lite={lite} />}
         {!ready && <section className="min-h-screen" aria-hidden="true" />}
         <PromoVideoSection />
-        <TechStackSection />
+        {lite ? <TechStackSection /> : <ThreeRing />}
         {lite ? <ServicesSection /> : <ThreeServices />}
-        {lite ? <PortfolioSection /> : <ThreePortfolio />}
-        {lite ? <WhyRasaSection /> : <ThreeWhy />}
-        {lite ? <ContactSection /> : <ThreeContact />}
+        {lite ? <PortfolioSection /> : <Tilt3DReveal><ThreePortfolio /></Tilt3DReveal>}
+        {lite ? <WhyRasaSection /> : <Tilt3DReveal><ThreeWhy /></Tilt3DReveal>}
+        {lite ? <ContactSection /> : <Tilt3DReveal><ThreeContact /></Tilt3DReveal>}
       </main>
       <Footer />
       {ready && (

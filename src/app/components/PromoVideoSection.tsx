@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import { Play } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { Loader2, Play } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { promoVideo } from "@/content/video";
 
@@ -11,9 +11,30 @@ export default function PromoVideoSection() {
   const v = promoVideo[language];
   const ref = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
+  const [near, setNear] = useState(false); // section is close to the viewport: start fetching the file
+  const [waiting, setWaiting] = useState(false);
+  const box = useRef<HTMLDivElement>(null);
+
+  // The file is small (~2 MB, faststart), so begin buffering shortly before the visitor reaches it.
+  useEffect(() => {
+    const el = box.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setNear(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "800px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   const start = () => {
     setStarted(true);
+    setWaiting(true);
     ref.current?.play().catch(() => {});
   };
 
@@ -29,7 +50,7 @@ export default function PromoVideoSection() {
           <p className="text-base text-muted-foreground leading-relaxed">{v.subtitle}</p>
         </div>
 
-        <div className="relative rounded-2xl overflow-hidden border border-border/60 glass-card shadow-2xl shadow-black/40 aspect-video bg-background">
+        <div ref={box} className="relative rounded-2xl overflow-hidden border border-border/60 glass-card shadow-2xl shadow-black/40 aspect-video bg-background">
           {/* key forces a fresh element (and source) when the language changes */}
           <video
             key={v.src}
@@ -37,11 +58,19 @@ export default function PromoVideoSection() {
             src={v.src}
             poster={v.poster}
             controls={started}
-            preload="none"
+            preload={near ? "auto" : "metadata"}
             playsInline
             className="w-full h-full object-cover"
             onEnded={() => setStarted(false)}
+            onWaiting={() => setWaiting(true)}
+            onPlaying={() => setWaiting(false)}
+            onCanPlay={() => setWaiting(false)}
           />
+          {started && waiting && (
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none bg-background/30">
+              <Loader2 size={40} className="animate-spin text-primary" />
+            </div>
+          )}
           {!started && (
             <button
               type="button"

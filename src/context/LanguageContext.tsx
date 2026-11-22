@@ -335,7 +335,7 @@ const translations: Record<Language, Translations> = {
     project2Title: "محلي RAG چیټ بوټ",
     project2Desc:
       "یو خورا دقیق RAG سیستم چې د فارسي/دري شرایطو لپاره تنظیم شوی، د محلي ژبې AI کې د توهم ستونزه حلوي.",
-    whyTitle: "ولې RASA وټاکئ؟",
+    whyTitle: "ولې رسا وټاکئ؟",
     whySubtitle:
       "یوازې کوډ نه — د علمي دقت او محلي تخصص پر بنسټ ستراتیژیک AI ملګرتیاوې.",
     whyFounder:

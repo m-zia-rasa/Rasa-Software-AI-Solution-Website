@@ -204,3 +204,16 @@
 @media (prefers-reduced-motion: reduce) {
     .spin-cube { animation: none; transform: rotateX(-14deg) rotateY(-25deg); }
 }
+
+/* animated headline shimmer */
+@keyframes shimmer-move {
+    from { background-position: 0% 50%; }
+    to { background-position: 200% 50%; }
+}
+.shimmer {
+    background-size: 200% auto;
+    animation: shimmer-move 3.5s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+    .shimmer { animation: none; }
+}
