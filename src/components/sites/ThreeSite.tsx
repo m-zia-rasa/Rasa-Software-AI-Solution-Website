@@ -1,5 +1,6 @@
 "use client";
 
+import PromoVideoSection from "@/app/components/PromoVideoSection";
 import React, { useEffect, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Header from "@/components/Header";
@@ -53,6 +54,7 @@ export default function ThreeSite() {
       <main>
         {ready && <ThreeHero lite={lite} />}
         {!ready && <section className="min-h-screen" aria-hidden="true" />}
+        <PromoVideoSection />
         <TechStackSection />
         {lite ? <ServicesSection /> : <ThreeServices />}
         {lite ? <PortfolioSection /> : <ThreePortfolio />}

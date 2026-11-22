@@ -1,5 +1,6 @@
 "use client";
 
+import PromoVideoSection from "@/app/components/PromoVideoSection";
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Header from "@/components/Header";
@@ -27,6 +28,7 @@ export default function AnimatedSite() {
       <Header />
       <main>
         <CinematicHero />
+        <Reveal><PromoVideoSection /></Reveal>
         <Reveal><TechStackSection /></Reveal>
         <AnimatedServices />
         <Reveal><PortfolioSection /></Reveal>

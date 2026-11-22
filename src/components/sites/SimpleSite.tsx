@@ -1,5 +1,6 @@
 "use client";
 
+import PromoVideoSection from "@/app/components/PromoVideoSection";
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Header from "@/components/Header";
@@ -22,6 +23,7 @@ export default function SimpleSite() {
       <Header />
       <main>
         <HeroSection />
+        <PromoVideoSection />
         <TechStackSection />
         <ServicesSection />
         <PortfolioSection />
