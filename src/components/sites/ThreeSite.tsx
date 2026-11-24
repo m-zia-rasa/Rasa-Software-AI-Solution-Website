@@ -9,6 +9,7 @@ import TechStackSection from "@/app/components/TechStackSection";
 import ServicesSection from "@/app/components/ServicesSection";
 import PortfolioSection from "@/app/components/PortfolioSection";
 import ZebShopShowcase from "@/app/components/ZebShopShowcase";
+import ZebChatbotShowcase from "@/app/components/ZebChatbotShowcase";
 import WhyRasaSection from "@/app/components/WhyRasaSection";
 import ContactSection from "@/app/components/ContactSection";
 import { showcaseText } from "@/content/showcase";
@@ -60,7 +61,7 @@ export default function ThreeSite() {
         <PromoVideoSection />
         {lite ? <TechStackSection /> : <ThreeRing />}
         {lite ? <ServicesSection /> : <ThreeServices />}
-        {lite ? <PortfolioSection /> : <><Tilt3DReveal><ThreePortfolio /></Tilt3DReveal><ZebShopShowcase /></>}
+        {lite ? <PortfolioSection /> : <><Tilt3DReveal><ThreePortfolio /></Tilt3DReveal><ZebShopShowcase /><ZebChatbotShowcase /></>}
         {lite ? <WhyRasaSection /> : <Tilt3DReveal><ThreeWhy /></Tilt3DReveal>}
         {lite ? <ContactSection /> : <Tilt3DReveal><ThreeContact /></Tilt3DReveal>}
       </main>

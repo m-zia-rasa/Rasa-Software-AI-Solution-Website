@@ -7,6 +7,7 @@ import Link from 'next/link';
 import AppImage from '@/components/ui/AppImage';
 import { useLanguage } from '@/context/LanguageContext';
 import ZebShopShowcase from './ZebShopShowcase';
+import ZebChatbotShowcase from './ZebChatbotShowcase';
 
 const projects = [
   {
@@ -156,6 +157,7 @@ export default function PortfolioSection() {
         </div>
       </section>
       <ZebShopShowcase />
+      <ZebChatbotShowcase />
     </>
   );
 }
